@@ -1,9 +1,10 @@
 # RLKGF
 Reinforcement learning knowledge graph feedback for LLM tuning.
 
-TLDR - Build algorithm for quickly checking node reachability and estimate a path. Combines embedding and summarization tactics. But, unlike HARP or GraphZoom, doesn't disgard lower-level embedding spaces.
+TLDR - Build algorithm for quickly checking node reachability and estimate a path between nodes in a knowledge graph. Combines embedding and summarization tactics. But, unlike HARP or GraphZoom, doesn't disgard lower-level embedding spaces.
 In order too...
-Instead of using a neural net to infer human feedback (RLHF), build a knowledge graph sufficient to provide human feedback on a particular subject and a means for query optimization.
+Instead of using a neural net to infer human feedback (RLHF), build a knowledge graph sufficient to provide human feedback on a particular subject and a means for query optimization. Provides a neat way for LLMs
+to be tuned to specific databases.
 
 
 My goal has been to experiment with LLM assistants useful to scientists given the rise in scientific databases where entriers include both data and paper(eg recent NIH NWB initiative for neuroscience). We need..
