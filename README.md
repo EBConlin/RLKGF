@@ -1,15 +1,31 @@
-# RLKGF
-Reinforcement learning knowledge graph feedback for LLM tuning.
+# HEG: Hierarchical Embedded Graphs for Scalable Path Queries
 
-TLDR - Build algorithm for quickly checking node reachability and estimate a path between nodes in a knowledge graph. Combines embedding and summarization tactics. But, unlike HARP or GraphZoom, doesn't disgard lower-level embedding spaces.
-In order too...
-Instead of using a neural net to infer human feedback (RLHF), build a knowledge graph sufficient to provide human feedback on a particular subject and a means for query optimization. Provides a neat way for LLMs
-to be tuned to specific databases.
+This system accelerates shortest-path queries over large-scale knowledge graphs using hierarchical summarization, community-aware embeddings, and distributed A*.
 
+## 📊 Performance
+- Sublinear query time
+- Parallel A* outperforms NetworkX for long paths
 
-My goal has been to experiment with LLM assistants useful to scientists given the rise in scientific databases where entriers include both data and paper(eg recent NIH NWB initiative for neuroscience). We need..
-I wanted to use LLMs interfaces between scientists and massive databases of past findings/data. I broke the problem down into...
-1. A means of parsing research publications argumentative structure -> Knowledge Graph. Eventually I'd want to include data sources as nodes which are sampled from a hidden dimension.
-2. Tuning the LLM would be helped by building ways to quickly check if two nodes (scientific premises) are connected (logically infer one another) or don't (irrelevant or proximal and contradictory), and ways to quickly estimate a "good enough" path.
+## 🧱 Components
+- Node2vec embeddings within Louvain/METIS communities
+- Bitmask-based boundary node indexing
+- Multi-level abstraction + descent-based path planning
 
-This repo is an implementation of 2 without 1 (which is being improved) on a citation network
+## 🔬 Use Cases
+- Knowledge graph search
+- Scalable fact validation
+- Dynamic graph exploration
+
+## 🛠 Setup
+```bash
+pip install networkx faiss-cpu
+```
+
+## 📝 Example
+```python
+from heg_search import query_path
+query_path("protein_kinase", "DNA_repair")
+```
+
+## 📄 Paper
+See "Theoretical Justification for a Hierarchical Embedded Graph Approach to Shortest Path Abstraction and Knowledge Validation" (2024)
